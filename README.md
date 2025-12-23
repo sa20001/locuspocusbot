@@ -1,4 +1,9 @@
-# LocusPocusBot 2.0 [![Build Status](https://travis-ci.com/matteocontrini/locuspocusbot.svg?branch=dotnet)](https://travis-ci.com/matteocontrini/locuspocusbot)
+# LocusPocusBot 2.0
+
+>[!WARNING]
+>**LocusPocusBot** is not available anymore since December 2025. Thank you to everyone who contributed or used it over the years! ❤️
+>
+>As an alternative, you can use the [UniTrento app](https://unitrento.app/) or [@unitntgbot](https://t.me/@unitntgbot).
 
 ## Previous versions
 
