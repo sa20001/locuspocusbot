@@ -1,0 +1,20 @@
+services:
+  locuspocusbot:
+    container_name: locuspocusbot
+    image: ghcr.io/sa20001/locuspocusbot:latest
+    network_mode: host
+    volumes:
+      - ./appSettings.json:/app/appSettings.json
+    depends_on:
+      - mongodb
+
+  mongodb:
+    container_name: locuspocus-mongodb
+    image: mongo:8
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:

@@ -1,7 +1,7 @@
 .idea
 bin
 obj
-appsettings.json
+appSettings.json
 *.sql
 mongodb-migration
 .DS_Store

@@ -1,13 +1,9 @@
-# LocusPocusBot 2.0
+# LocusPocusBot 3.0
 
->[!WARNING]
->**LocusPocusBot** is not available anymore since December 2025. Thank you to everyone who contributed or used it over the years! ❤️
+> [!NOTE]
+> **LocusPocusBot 3.0** is a community-maintained continuation of the original LocusPocusBot.
 >
->As an alternative, you can use the [UniTrento app](https://unitrento.app/) or [@unitntgbot](https://t.me/@unitntgbot).
-
-## Previous versions
-
-A previous version of this bot was developed in Go and has been available for about a year and a half. The code of that version is now available [in another branch](https://github.com/matteocontrini/locuspocusbot/tree/go).
+> The original [**LocusPocusBot**](https://github.com/matteocontrini/locuspocusbot) was discontinued in December 2025. This version has been independently redeployed.
 
 ## Requirements
 
@@ -15,9 +11,11 @@ MongoDB is required for the bot to work. Data about users and groups will be sto
 
 ## Configuration
 
-Configuration of the application is done through the `appsettings.json` file read from the current working directory at startup.
+Configuration of the application is done through the `appSettings.json` file read from the current working directory at startup.
 
-Examples for [development](https://github.com/matteocontrini/locuspocusbot/blob/dotnet/LocusPocusBot/appsettings.example.development.json) and [production](https://github.com/matteocontrini/locuspocusbot/blob/dotnet/LocusPocusBot/appsettings.example.json) environments are available.
+## Running in production
+
+For running in production refer to `docker-compose.yaml`.
 
 ## Running for development
 
@@ -28,8 +26,8 @@ Choose one of the following methods:
 Requirements:
 
 - .NET 6.0 SDK is installed
-- MongoDB is running on the host and port specified in the `appsettings.json` file
-- The `LocusPocusBot/bin/Debug/net6.0` directory contains the `appsettings.json` file
+- MongoDB is running on the host and port specified in the `appSettings.json` file
+- The `LocusPocusBot/bin/Debug/net6.0` directory contains the `appSettings.json` file
 
 Run with the nice green button.
 
@@ -38,8 +36,8 @@ Run with the nice green button.
 Requirements:
 
 - .NET 6.0 SDK is installed
-- MongoDB is running on the host and port specified in the `appsettings.json` file
-- The `LocusPocusBot` directory contains the `appsettings.json` file
+- MongoDB is running on the host and port specified in the `appSettings.json` file
+- The `LocusPocusBot` directory contains the `appSettings.json` file
 
 Run with the dotnet CLI by executing:
 
@@ -50,41 +48,8 @@ dotnet run
 
 ### Docker Compose
 
-A basic development Docker Compose file (not including MongoDB) would look like this:
-
-```yaml
-version: '3'
-
-services:
-  locuspocusbot:
-    container_name: 'locuspocusbot'
-    build: .
-    network_mode: 'host'
-    volumes:
-      - ./LocusPocusBot/appsettings.json:/app/appsettings.json
-```
-
-This time make sure that the configuration file lies at `LocusPocusBot/appsettings.json`.
-
-Now run this command in the repository directory:
+Refer to `docker-compose_dev.yaml` and run this command in the repository directory:
 
 ```sh
-docker-compose -f docker-compose.yml up --build
-```
-
-## Running in production
-
-A basic Docker Compose file for production looks like this:
-
-```yaml
-version: '3'
-
-services:
-  locuspocusbot:
-    container_name: 'locuspocusbot'
-    image: 'matteocontrini/locuspocusbot'
-    restart: unless-stopped
-    network_mode: 'host'
-    volumes:
-      - ./appsettings.json:/app/appsettings.json
+docker-compose -f docker-compose_dev.yaml up --build
 ```
